@@ -8,6 +8,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 
 @Service
 public class RevisionService {
@@ -17,9 +20,10 @@ public class RevisionService {
 
     private static final Logger logger = LoggerFactory.getLogger(RevisionService.class);
 
-    public RevisionRequest getQuestion(Integer questionId) {
+    public List<RevisionRequest> getQuestion(String topic, String tags) {
         logger.debug("Control reached to service layer, fetching questions from dB...");
-        return repository.findById(questionId).get();
+        List<RevisionRequest> questions = repository.findByTopic(topic);
+        return questions.stream().filter(tag -> tag.getTags().contains(tags)).collect(Collectors.toList());
     }
 
     public RevisionRequest addQuestion(RevisionRequest request) {

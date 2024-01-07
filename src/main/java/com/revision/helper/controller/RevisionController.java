@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/questions")
 public class RevisionController {
@@ -18,9 +20,9 @@ public class RevisionController {
     private static final Logger logger = LoggerFactory.getLogger(RevisionController.class);
 
 
-    @GetMapping("/getQuestion/{id}")
-    public RevisionRequest getQuestion(@PathVariable("id") Integer questionId) {
-        RevisionRequest response = service.getQuestion(questionId);
+    @GetMapping("/getQuestion/{topic}/{tags}")
+    public List<RevisionRequest> getQuestion(@PathVariable("topic") String topic, @PathVariable("tags") String tags) {
+        List<RevisionRequest> response = service.getQuestion(topic, tags);
         logger.debug("Fetched question sending back the response...");
         return response;
     }
