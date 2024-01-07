@@ -1,4 +1,4 @@
-package com.revision.helper.main;
+package com.revision.helper.googleDoc;
 
 public class Constants {
 
