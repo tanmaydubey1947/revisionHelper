@@ -46,4 +46,10 @@ public class RevisionController {
         return service.getAllTopic();
     }
 
+    @GetMapping("/getTagsByTopic/{topic}")
+    public List<String> getTagsByTopic(@PathVariable("topic") String topic){
+        return service.getTagsByTopic(topic);
+    }
+
+
 }

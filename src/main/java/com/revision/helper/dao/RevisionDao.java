@@ -27,4 +27,12 @@ public class RevisionDao {
         return jdbcTemplate.queryForList(sql, String.class);
     }
 
+    public List<String> getTagsByTopic(String topic) {
+        String getTopicSql = "SELECT topic_id FROM topics WHERE topic_name = ?";
+        Integer topicId = jdbcTemplate.queryForObject(getTopicSql, Integer.class, topic);
+
+        String getTagSql = "SELECT tag FROM topic_tag WHERE topic_id = ?";
+        return jdbcTemplate.queryForList(getTagSql, String.class, topicId);
+    }
+
 }

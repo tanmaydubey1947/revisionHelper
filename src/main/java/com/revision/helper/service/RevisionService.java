@@ -44,4 +44,8 @@ public class RevisionService {
     public List<String> getAllTopic(){
         return dao.getAllTopic();
     }
+
+    public List<String> getTagsByTopic(String topic){
+        return dao.getTagsByTopic(topic);
+    }
 }
