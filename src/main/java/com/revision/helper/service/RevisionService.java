@@ -40,4 +40,8 @@ public class RevisionService {
         logger.debug("Control reached to service layer, adding topic to db...");
         dao.addTopic(topic);
     }
+
+    public List<String> getAllTopic(){
+        return dao.getAllTopic();
+    }
 }

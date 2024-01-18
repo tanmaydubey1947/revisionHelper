@@ -41,4 +41,9 @@ public class RevisionController {
         return "Added Topic Successfully...";
     }
 
+    @GetMapping("/getAllTopic")
+    public List<String> getAllQuestion(){
+        return service.getAllTopic();
+    }
+
 }
