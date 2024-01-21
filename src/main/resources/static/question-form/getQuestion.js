@@ -18,6 +18,8 @@ function searchQuestions() {
         });
 }
 
+
+
 function displayQuestions(questions) {
     const questionTable = document.getElementById('questionList');
     questionTable.innerHTML = ''; // Clear previous results
