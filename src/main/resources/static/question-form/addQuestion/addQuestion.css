@@ -39,6 +39,13 @@ button:hover {
     background-color: #555;
 }
 
+select, input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
 /* Additional styling for the alert */
 .alert {
     background-color: #4CAF50;

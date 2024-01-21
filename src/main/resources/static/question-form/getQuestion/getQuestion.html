@@ -8,17 +8,12 @@
 <body>
 <h1>Question Search</h1>
 <form id="questionSearchForm">
-    <label for="topic">Topic:</label>
-    <select id="topic" name="topic">
-        <option value="Tree">Tree</option>
-        <option value="LinkedList">LinkedList</option>
-    </select><br><br>
 
-    <label for="tags">Tags:</label>
-    <select id="tags" name="tags">
-        <option value="tree">tree</option>
-        <option value="traversal">traversal</option>
-    </select><br><br>
+    <label for="topicDropdown">Topic</label><br>
+    <select id="topicDropdown" name="topicDropdown" required></select><br>
+
+    <label for="tagsDropdown">Tags</label>
+    <select id="tagsDropdown" name="tagsDropdown" required></select><br>
 
     <button type="button" onclick="searchQuestions()">Search</button>
 </form>

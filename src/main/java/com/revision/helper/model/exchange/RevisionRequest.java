@@ -15,17 +15,19 @@ public class RevisionRequest {
     private String topic;
     private String source;
     private String tags;
+    private Integer topic_id;
 
     public RevisionRequest() {
         super();
     }
 
-    public RevisionRequest(String questionName, String description, String source, String tags, Integer questionId) {
+    public RevisionRequest(String questionName, String description, String source, String tags, Integer questionId, Integer topic_id) {
         this.questionName = questionName;
         this.topic = description;
         this.source = source;
         this.tags = tags;
         this.questionId = questionId;
+        this.topic_id = topic_id;
     }
 
     public String getQuestionName() {
@@ -66,5 +68,13 @@ public class RevisionRequest {
 
     public void setQuestionId(Integer questionId) {
         this.questionId = questionId;
+    }
+
+    public Integer getTopic_id() {
+        return topic_id;
+    }
+
+    public void setTopic_id(Integer topic_id) {
+        this.topic_id = topic_id;
     }
 }
