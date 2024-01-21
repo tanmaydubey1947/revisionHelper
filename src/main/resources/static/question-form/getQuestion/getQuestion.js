@@ -1,8 +1,8 @@
 function searchQuestions() {
-    const topic = document.getElementById('topic').value;
-    const tags = document.getElementById('tags').value;
+    const topicDropdown = document.getElementById('topicDropdown').value;
+    const tagsDropdown = document.getElementById('tagsDropdown').value;
 
-    fetch(`http://localhost:8080/api/questions/getQuestion/${topic}/${tags}`)
+    fetch(`http://localhost:8080/api/questions/getQuestion/${topicDropdown}/${tagsDropdown}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok.');
@@ -14,7 +14,6 @@ function searchQuestions() {
         })
         .catch(error => {
             console.error('There was a problem searching questions:', error);
-            // Handle error, e.g., show an error message
         });
 }
 
@@ -55,3 +54,46 @@ function displayQuestions(questions) {
         questionTable.appendChild(row);
     });
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+fetchTopics();
+});
+
+ function fetchTopics() {
+     const topicDropdown = document.getElementById('topicDropdown');
+     const tagsDropdown = document.getElementById('tagsDropdown');
+
+     topicDropdown.addEventListener('change', function () {
+         const selectedTopic = topicDropdown.value;
+         fetchTags(selectedTopic, tagsDropdown);
+     });
+
+     fetch('http://localhost:8080/api/questions/getAllTopic')
+         .then(response => response.json())
+         .then(topics => {
+             // Populate the topic dropdown
+             topics.forEach(topic => {
+                 const option = document.createElement('option');
+                 option.value = topic;
+                 option.textContent = topic;
+                 topicDropdown.appendChild(option);
+             });
+         })
+         .catch(error => console.error('Error fetching topics:', error));
+ }
+
+ function fetchTags(selectedTopic, tagsDropdown) {
+     fetch(`http://localhost:8080/api/questions/getTagsByTopic/${selectedTopic}`)
+         .then(response => response.json())
+         .then(tags => {
+             tagsDropdown.innerHTML = '';
+
+             tags.forEach(tag => {
+                 const option = document.createElement('option');
+                 option.value = tag;
+                 option.textContent = tag;
+                 tagsDropdown.appendChild(option);
+             });
+         })
+         .catch(error => console.error('Error fetching tags:', error));
+ }
