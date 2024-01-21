@@ -10,7 +10,6 @@ select * from hibernate_sequence;
 
 select * from revision_request;
 
-select distinct(topic_name) from topics;
 
 create table topics (topic_id int NOT NULL, topic_name varchar(255), PRIMARY KEY(topic_id));
 
@@ -26,7 +25,7 @@ select * from topic_tag where topic_id = 1;
 
 insert into topic_tag (topic_id, tag) values(1, "zig zag");
 
-select tag from t topic_tags;
+select t.tag from t topic_tags;
 
 SELECT topic_id FROM topics WHERE topic_name ="Tree";
 
