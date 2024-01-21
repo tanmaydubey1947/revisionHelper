@@ -1,4 +1,4 @@
-package com.revision.helper.model;
+package com.revision.helper.model.exchange;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -1,7 +1,8 @@
 package com.revision.helper.controller;
 
 
-import com.revision.helper.model.RevisionRequest;
+import com.revision.helper.model.exchange.AddTopic;
+import com.revision.helper.model.exchange.RevisionRequest;
 import com.revision.helper.service.RevisionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,5 +34,22 @@ public class RevisionController {
         logger.debug("Question added successfully...");
         return response;
     }
+
+    @PostMapping("/addTopic")
+    public String addTopic(@RequestBody AddTopic topic) {
+        service.addTopic(topic);
+        return "Added Topic Successfully...";
+    }
+
+    @GetMapping("/getAllTopic")
+    public List<String> getAllQuestion(){
+        return service.getAllTopic();
+    }
+
+    @GetMapping("/getTagsByTopic/{topic}")
+    public List<String> getTagsByTopic(@PathVariable("topic") String topic){
+        return service.getTagsByTopic(topic);
+    }
+
 
 }
