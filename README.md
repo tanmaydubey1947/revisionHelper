@@ -5,7 +5,7 @@ This web application allows users to query and display questions based on topics
 ## Features
 
 - **Add Question:** Allows users to add new questions with details like question name, topic, source, and tags.
-- **Get Question:** Queries questions based on selected topic and tags and displays the results in a table format.
+- **Get Question:** Queries questions based on selected topics and tags and displays the results in a table format.
 
 ## Usage
 
@@ -14,7 +14,7 @@ This web application allows users to query and display questions based on topics
    - Fill in the required details (question name, topic, source, and tags) and click the "Add" button to submit the question.
 
 2. **Get Question:**
-   - Click on the "Get Question" button to search for questions based on selected topic and tags. (This functionality redirects to the "getQuestion.html" page.)
+   - Click on the "Get Question" button to search for questions based on selected topics and tags. (This functionality redirects to the "getQuestion.html" page.)
    - Select a "Topic" and "Tags" from the dropdown menus.
    - Click the "Search" button to retrieve questions matching the selected criteria. The results will be displayed in a table format below the search form.
 
@@ -37,8 +37,7 @@ This web application allows users to query and display questions based on topics
 ## Known Issues
 
 - No error handling for failed API requests or backend errors.
-- UI needs imporvement
-- Tags needs to be fetched from dB before GET call, so to see the available tags only.
+- UI needs improvement
 
 ## Future Enhancements
 
