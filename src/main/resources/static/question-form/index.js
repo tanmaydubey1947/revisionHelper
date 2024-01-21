@@ -1,7 +1,7 @@
 function redirectToAddQuestion() {
-    window.location.href = 'addQuestion.html';
+    window.location.href = 'addQuestion/addQuestion.html';
 }
 
 function redirectToGetQuestion() {
-    window.location.href = 'getQuestion.html';
+    window.location.href = 'getQuestion/getQuestion.html';
 }
