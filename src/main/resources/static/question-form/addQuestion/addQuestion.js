@@ -6,7 +6,7 @@ function addQuestion() {
 
     const data = {
         questionName: questionName,
-        topicDropdown: topicDropdown,
+        topic: topicDropdown,
         source: source,
         tags: tags
     };

@@ -33,7 +33,11 @@ public class RevisionService {
 
     public RevisionRequest addQuestion(RevisionRequest request) {
         logger.debug("Control reached to service layer, persisting changes to dB...");
-        return repository.save(request);
+        Integer topicId =  dao.fetchTopicId(request);
+        request.setTopic_id(topicId);
+        repository.save(request);
+        dao.addTags(request);
+        return new RevisionRequest();
     }
 
     public void addTopic(AddTopic topic){
